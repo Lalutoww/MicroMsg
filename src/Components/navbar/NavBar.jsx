@@ -2,14 +2,17 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 
+import { Link } from 'react-router-dom';
+
 export const NavBar = () => {
    return (
       <>
          <Navbar bg="dark" data-bs-theme="dark">
             <Container>
                <Navbar.Brand
+                  as={Link}
+                  to="/"
                   style={{ position: 'absolute', left: 80 }}
-                  href="#feed"
                >
                   <img
                      alt=""
@@ -22,14 +25,17 @@ export const NavBar = () => {
                   MicroMsg
                </Navbar.Brand>
                <Nav style={{ margin: 'auto' }} className="me-auto">
-                  <Nav.Link href="#feed">Feed</Nav.Link>
-                  <Nav.Link href="#search">Search</Nav.Link>
-                  <Nav.Link href="#post">Post</Nav.Link>
-                  <Nav.Link href="#profile">Profile</Nav.Link>
+                  <Nav.Link as={Link} to="/about">Feed</Nav.Link>
+                  <Nav.Link as={Link} to="/search">Search</Nav.Link>
+                  <Nav.Link as={Link} to="/post">Post</Nav.Link>
+                  <Nav.Link as={Link} to="/profile">Profile</Nav.Link>
                </Nav>
-               <Navbar.Collapse style={{position: 'absolute', right: 80}} className="justify-content-end">
+               <Navbar.Collapse
+                  style={{ position: 'absolute', right: 80 }}
+                  className="justify-content-end"
+               >
                   <Navbar.Text>
-                     Signed in as: <a href="#login">TEST USER</a>
+                     Signed in as: <Link to="/login">TEST USER</Link>
                   </Navbar.Text>
                </Navbar.Collapse>
             </Container>
